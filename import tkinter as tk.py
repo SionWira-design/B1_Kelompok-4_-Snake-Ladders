@@ -5,7 +5,7 @@ def create_board(root):
     canvas = tk.Canvas(root, width=500, height=500, bg="white")
     canvas.pack()
 
-    size = 50  # ukuran 1 kotak
+    size = 50  
     color1 = "#f0d5b0"
     color2 = "#c79c60"
 
@@ -83,4 +83,5 @@ def main():
     root.mainloop()
 
 if __name__ == "__main__":
+
     main()
