@@ -44,8 +44,7 @@ def get_cell_center(number, size=50):
     row = 9 - (number // 10)
     col = number % 10
 
-    # zig-zag: baris genap dihitung dari kiri → kanan
-    # baris ganjil dihitung dari kanan → kiri
+    # untuk zig-zag
     if (9 - row) % 2 == 1:
         col = 9 - col
 
@@ -72,8 +71,20 @@ def move_player(canvas, token_id, position, size = 50):
     dy = y - current_y
     canvas.move(token_id, dx, dy)
 
+def animate_move(canvas, token_id, start, end, delay = 200):
+    if start > end:
+        return
+    move_player(canvas, token_id, start)
+    canvas.after(delay, lambda:
+                 animate_move(canvas, token_id, start + 1, end, delay))
+
     
     
+
+
+
+
+
 
 def main():
     root = tk.Tk()
@@ -85,3 +96,4 @@ def main():
 if __name__ == "__main__":
 
     main()
+
